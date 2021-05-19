@@ -1,2 +1,0 @@
-# EjemploReact
- Ejemplo react native
