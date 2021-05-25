@@ -5,7 +5,6 @@ import { color } from 'react-native-reanimated'
 const { width, height } = Dimensions.get('window')
 
 const NewsCard = ({item }) => {
-    console.log(item)
     return (
         <View style={styles.cardView}>
             <Text>{item._id}</Text>
