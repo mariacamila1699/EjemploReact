@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, Text, TextInput, Button, FlatList, Alert } from 'react-native'
 import NewsCard from '../Components/Roles'
 import newAPI from '../Services/Apis'
-import axios from 'axios'
+
 
 const News = ({ navigation }) => {
 
-    // const [news, setNews] = useState([])
+    
     const [news, setNews] = useState([]);
     const [text, setText] = useState('');
 
@@ -14,10 +14,7 @@ const News = ({ navigation }) => {
         getNewsFromAPI()
     }, [])
 
-    // const newsResponse = async() =>{
-    //     const response = await newAPI.get('top-headlines?country=us&apiKey=aa6a097fb9fb4509958fdabd1942e6d1')
-    //     console.log(response.data)
-    // }
+    
      function enviar () {
         newAPI.post('Roles', {
             tipo: text
@@ -47,23 +44,18 @@ const News = ({ navigation }) => {
 
     return (
         <View>
-            <View>
-            <FlatList data={news.Rol}
-                keyExtractor={(item, index) => 'key' + index}
-                renderItem={({item}) => {
-                    return <NewsCard item = {item}/>
-                }}
-            />
-            </View>
-            <View style={{padding: 10}}>
+           
+            <View style={{padding: 25}}>
+            <Text style={{fontSize: 20,textAlign: "center"}}>AGREGAR Rol</Text>
+            
                 <TextInput
-                    style={{height: 40, borderWidth: 1,}}
+                    style={{height: 40, borderWidth: 1, borderRadius: 20,}}
                     placeholder="Nombre Rol"
                     onChangeText={text => setText(text)}
                     defaultValue={text}
                 />
                  <Button
-                    style={{textAlign: "center", marginVertical: 8}}
+                    style={{textAlign: "center", marginVertical: 10, borderRadius: 5}}
                     title="Enviar"
                     color="#f194ff"
                     onPress={enviar}
